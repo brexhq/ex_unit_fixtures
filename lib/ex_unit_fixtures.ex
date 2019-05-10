@@ -341,7 +341,7 @@ defmodule ExUnitFixtures do
 
       setup_all do
         {:ok, module_store} = ExUnitFixtures.Imp.FixtureStore.start_link
-        module_ref = make_ref
+        module_ref = make_ref()
 
         ExUnitFixtures.Teardown.register_pid(module_ref, module_store)
 
