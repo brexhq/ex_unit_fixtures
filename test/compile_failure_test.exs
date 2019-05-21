@@ -1,5 +1,5 @@
 defmodule TestCompileFailures do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
 
   test "module fixtures can't depend on test fixtures in test case" do
     assert_raise RuntimeError, ~r/Mis-matched scopes/, fn ->

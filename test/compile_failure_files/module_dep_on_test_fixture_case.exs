@@ -1,6 +1,6 @@
 defmodule ModuleDepOnTestFixture do
   use ExUnitFixtures
-  use ExUnit.Case
+  use ExUnit.Case, async: true
 
   deffixture test_fixture do
   end

@@ -26,7 +26,7 @@ defmodule ExUnitFixtures.FixtureModule do
       defmodule MyTests do
         use ExUnitFixtures
         use MyFixtures
-        use ExUnit.Case
+        use ExUnit.Case, async: true
 
         @fixtures: [:user]
         test "that we have a user", %{user: user} do

@@ -1,5 +1,5 @@
 defmodule ExUnitFixturesImpTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
 
   alias ExUnitFixtures.Imp
   alias ExUnitFixtures.FixtureDef
@@ -47,7 +47,7 @@ defmodule ExUnitFixturesImpTest do
 
   def fixture_func(fixture) do
     assert fixture != nil
-    make_ref
+    make_ref()
   end
 
   test "resolve_fixtures correctly resolves fixtures" do
@@ -90,11 +90,11 @@ defmodule ExUnitFixturesImpTest do
     )
 
     assert FixtureStore.get_or_create(
-      session_store_pid, :"SomeModule.fixture_a", fn (_) -> make_ref end
+      session_store_pid, :"SomeModule.fixture_a", fn (_) -> make_ref() end
     ) == results.fixture_a
 
     assert FixtureStore.get_or_create(
-      module_store_pid, :"SomeModule.fixture_b", fn (_) -> make_ref end
+      module_store_pid, :"SomeModule.fixture_b", fn (_) -> make_ref() end
     ) == results.fixture_b
 
   end

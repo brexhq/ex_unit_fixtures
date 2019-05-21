@@ -1,10 +1,10 @@
 defmodule ExUnitFixtures.TeardownTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
 
   alias ExUnitFixtures.Teardown
 
   test "module scoped teardown process" do
-    ref = make_ref
+    ref = make_ref()
     {:ok, agent} = Agent.start_link(fn -> false end)
     Teardown.register_pid(ref)
 

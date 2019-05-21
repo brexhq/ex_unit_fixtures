@@ -7,7 +7,7 @@ defmodule ModuleStoreTestFixtures2 do
 end
 
 defmodule ModuleStoreTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
 
   alias ExUnitFixtures.Imp.ModuleStore
 
