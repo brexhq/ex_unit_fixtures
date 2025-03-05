@@ -23,7 +23,7 @@ defmodule ExUnitFixtures.Teardown do
   """
   @spec register_pid(reference) :: :ok
   def register_pid(module_ref) when is_reference(module_ref) do
-    register_pid(module_ref, self)
+    register_pid(module_ref, self())
   end
 
   @doc """
@@ -54,7 +54,7 @@ defmodule ExUnitFixtures.Teardown do
   end
 
   def register_teardown(:module, fun) when is_function(fun, 0) do
-    pid = self
+    pid = self()
     Agent.update(__MODULE__, fn (state = %{teardowns: tds, pids: pids}) ->
       unless Map.has_key?(pids, pid) do
         raise "register_teardown/2 can only be invoked from the test process"
