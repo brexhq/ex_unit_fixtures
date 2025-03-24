@@ -328,8 +328,6 @@ defmodule ExUnitFixtures do
       if Application.get_env(:ex_unit_fixtures, :auto_import) do
         use ExUnitFixtures.AutoImport
       end
-
-      ExUnit.Case.register_attribute __MODULE__, :fixtures
     end
   end
 
